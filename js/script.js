@@ -25,45 +25,65 @@ printSeason("Summer");
 //Question 2
 
 function printNumbers(firstNumber, secondNumber) {
-  console.log(firstNumber, secondNumber);
+  console.log("First: " + firstNumber, "Second: " + secondNumber);
 }
 
 printNumbers(100, 1000);
 
 //Question 3
 
-const result = document.querySelector(".total");
-
 function addNumbers(one, two, three) {
   const result = one + two + three;
   return result;
 }
 
-result.innerHTML = addNumbers(10, 100, 1000);
+const total = addNumbers(10, 100, 1000);
+
+const totalResult = document.querySelector(".total");
+totalResult.innerHTML = total;
 
 //Question 4
 
-const welcomeMessage = document.querySelector("#name");
-
-function createGreeting(greeting) {
-  const welcomeMessage = "Hello, my name is " + greeting;
-  return welcomeMessage;
+function createGreeting(name) {
+  const greeting = "Hello, my name is " + name + ".";
+  return greeting;
 }
 
-welcomeMessage.innerHTML = createGreeting("Elvis");
+const greeting = createGreeting("Elvis");
+const nameContainer = document.querySelector("#name");
+nameContainer.innerHTML = greeting;
 
 //Question 5
 
 //??
 
 function printListItems(items) {
-  for (let i = 0; i < items.length; i++);
+  for (let i = 0; i < items.length; i++) {
+    console.log(items[i]);
+  }
 }
 
 printListItems(sports);
 
 //Question 6
 
-function createGames(parameter) {
-  for (let i = 0; i < parameter.length; i++);
+function createGames(gamesList) {
+  let html = "";
+
+  for (let i = 0; i < gamesList.length; i++) {
+    let releaseYear = "Unknown year";
+    if (gamesList[i].released) {
+      releaseYear = gamesList[i].released;
+    }
+    html += `<div class=game>
+            <h5>${gamesList[i].name}</h5>
+            <p>Released: ${releaseYear}<p>
+            </div>`;
+  }
+  return html;
 }
+
+const newHTML = createGames(games);
+
+const gameContainer = document.querySelector(".game-container");
+gameContainer.innerHTML = newHTML;
