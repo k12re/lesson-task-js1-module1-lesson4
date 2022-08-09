@@ -55,8 +55,6 @@ nameContainer.innerHTML = greeting;
 
 //Question 5
 
-//??
-
 function printListItems(items) {
   for (let i = 0; i < items.length; i++) {
     console.log(items[i]);
